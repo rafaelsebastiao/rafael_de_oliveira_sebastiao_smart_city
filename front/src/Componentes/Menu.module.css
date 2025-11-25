@@ -1,0 +1,43 @@
+
+.corpo {
+  flex: 1;
+  display: flex;
+  justify-content: center;  
+  align-items: center;   
+  height: 78.5vh;   
+}
+
+
+
+.menuGrid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  max-width: 600px;
+  padding: 20px;
+  margin-top: 0;
+}
+
+.menuItem {
+  background: var(--azul-medio); 
+  color: var(--texto-claro);    
+  padding: 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 12px;
+  transition: 0.2s;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuItem:hover,
+.menuItem:focus {
+  background: var(--azul-escuro);
+  outline: 3px solid #ffffff;
+  transform: scale(1.04);
+}
+
