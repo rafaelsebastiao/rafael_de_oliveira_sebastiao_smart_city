@@ -14,6 +14,8 @@
 .titulo{
     align-self:center;
 }
+
+
 .menuItem {
     background: var(--azul-medio); 
     color: var(--texto-claro);    

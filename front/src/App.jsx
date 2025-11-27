@@ -1,14 +1,17 @@
 import { BrowserRouter } from 'react-router-dom';
-import { Rotas } from './Rotas/Rotas'; 
+import { MyRoutes } from './routes/Routes'; 
+
 import './app.css';
+
 function App() {
-  
+
   return (
     <BrowserRouter>
-      <Rotas />
+      <MyRoutes />
     </BrowserRouter>
   )
 
 }
+
 export default App
 

@@ -6,8 +6,8 @@ import { useState } from "react"
 
 import { useNavigate } from "react-router-dom"
 
-export function ListarAmbientes(){
-    const [sensores, setAmbientes] = useState([])
+export function ListEnvironments(){
+    const [environment, setEnvironments] = useState([])
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -18,7 +18,7 @@ export function ListarAmbientes(){
         axios.get(`${apiURL}/environments/`, {
             headers: {'Authorization': `Bearer ${token}`}
 
-        }).then(response => setAmbientes(response.data))
+        }).then(response => setEnvironments(response.data))
         .catch(
             error=> {
                 
@@ -55,7 +55,7 @@ export function ListarAmbientes(){
                 </thead>
 
                 <tbody>
-                    {sensores.map(ambiente => (
+                    {environment.map(environment => (
                         /*
                             class Environment(models.Model):
     local = models.ForeignKey(Local, to_field='id', on_delete=models.CASCADE)
@@ -63,10 +63,10 @@ export function ListarAmbientes(){
     responsible = models.ForeignKey(Responsible, to_field='id', on_delete=models.CASCADE, null=False, blank=False)
 
                         */
-                        <tr key={ambiente.id}>
-                            <td>{ambiente.local}</td>
-                            <td>{ambiente.description}</td>
-                            <td>{ambiente.responsible}</td>
+                        <tr key={environment.id}>
+                            <td>{environment.local}</td>
+                            <td>{environment.description}</td>
+                            <td>{environment.responsible}</td>
                         </tr>
 
                     ))}

@@ -30,10 +30,7 @@ export function Login() {
         resolver: zodResolver(schemaLogin),
     });
 
-    // function enviarDados(data) {
-    //     console.log("Login feito:", data);
-    //     navigate("/inicial");
-    // }
+
 
     async function enviarDados(data){
         try{
@@ -52,9 +49,18 @@ export function Login() {
             navigate('/inicial')
 
         }catch(error){
-            console.log('Erro de autenticação')
-            alert("Dados inválidos!")
-            console.log(error)
+            if(axios.isAxiosError(error) && error.response){
+                const statusCode = error.response.status
+
+                switch(statusCode){
+                    case 401:
+                        alert("Credenciais inválidas!")
+                    break;
+                }
+
+            }else{
+                alert("Erro de conexão!")
+            }
           
         }
     }

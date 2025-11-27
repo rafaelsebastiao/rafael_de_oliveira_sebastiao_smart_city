@@ -1,5 +1,5 @@
-import { Cabecalho } from "../Componentes/Cabecalho"
-import { Rodape } from "../Componentes/Rodape"
+import { Header } from "../components/Header"
+import { Footer } from "../components/Footer"
 import estilo from './Home.module.css'
 
 export function Home(){

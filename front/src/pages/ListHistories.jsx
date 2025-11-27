@@ -6,8 +6,8 @@ import { useState } from "react"
 
 import { useNavigate } from "react-router-dom"
 
-export function ListarHistoricos(){
-    const [historicos, setHistoricos] = useState([])
+export function ListHistories(){
+    const [history, setHistories] = useState([])
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -18,7 +18,7 @@ export function ListarHistoricos(){
         axios.get(`${apiURL}/histories/`, {
             headers: {'Authorization': `Bearer ${token}`}
 
-        }).then(response => setHistoricos(response.data))
+        }).then(response => setHistories(response.data))
         .catch(
             error=> {
                 
@@ -55,7 +55,7 @@ export function ListarHistoricos(){
                 </thead>
 
                 <tbody>
-                    {historicos.map(historico => (
+                    {history.map(history => (
                         /*
                             class Environment(models.Model):
     local = models.ForeignKey(Local, to_field='id', on_delete=models.CASCADE)
@@ -63,10 +63,10 @@ export function ListarHistoricos(){
     responsible = models.ForeignKey(Responsible, to_field='id', on_delete=models.CASCADE, null=False, blank=False)
 
                         */
-                        <tr key={historico.id}>
-                            <td>{historico.sensor}</td>
-                            <td>{historico.valor}</td>
-                            <td>{historico.timestamp}</td>
+                        <tr key={history.id}>
+                            <td>{history.sensor}</td>
+                            <td>{history.valor}</td>
+                            <td>{history.timestamp}</td>
                         </tr>
 
                     ))}

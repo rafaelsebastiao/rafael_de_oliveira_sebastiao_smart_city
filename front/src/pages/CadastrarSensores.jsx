@@ -135,9 +135,6 @@ export function CadastrarSensores() {
                 )}
 
 
-
-
-
                 <button className={estilo.botao}>Entrar</button>
 
             </form>

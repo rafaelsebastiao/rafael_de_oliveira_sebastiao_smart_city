@@ -1,7 +1,7 @@
-import estilo from './Cabecalho.module.css';
+import estilo from './Header.module.css';
 import logo from '../assets/logo.png';
 
-export function Cabecalho(){
+export function Header(){
     return(
         <header className={estilo.cabecalho}>
             <img src={logo} alt="Logo Smartcity" className={estilo.logo}/>

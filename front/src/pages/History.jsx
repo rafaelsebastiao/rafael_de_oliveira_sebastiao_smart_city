@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import estilo from './Sensores.module.css'
+import estilo from './Sensors.module.css'
 
-export function Historico(){
+export function History(){
     return (
         <>
             <main>

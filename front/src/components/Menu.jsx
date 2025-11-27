@@ -6,9 +6,9 @@ export function Menu() {
     
     <nav className={estilo.menuGrid}>
       <Link to="home" className={estilo.menuItem}>Home</Link>
-      <Link to="ambientes" className={estilo.menuItem}>Ambientes</Link>
-      <Link to="sensores" className={estilo.menuItem}>Sensores</Link>
-      <Link to="historico" className={estilo.menuItem}>Histórico</Link>
+      <Link to="environments" className={estilo.menuItem}>Ambientes</Link>
+      <Link to="sensors" className={estilo.menuItem}>Sensores</Link>
+      <Link to="history" className={estilo.menuItem}>Histórico</Link>
 
 
     </nav>

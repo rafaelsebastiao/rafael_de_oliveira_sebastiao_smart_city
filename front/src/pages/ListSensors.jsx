@@ -6,9 +6,9 @@ import { useState } from "react"
 
 import { useNavigate } from "react-router-dom"
 
-import estilo from './ListarSensores.module.css'
+import estilo from './ListSensors.module.css'
 
-export function ListarSensores(){
+export function ListSensors(){
     const [sensores, setSensores] = useState([])
     const navigate = useNavigate()
 
@@ -16,10 +16,9 @@ export function ListarSensores(){
         const token = localStorage.getItem('access_token')
 
         if(!token) return;
-
         axios.get(`${apiURL}/sensors/`, {
             headers: {'Authorization': `Bearer ${token}`}
-
+            
         }).then(response => setSensores(response.data))
         .catch(
             error=> {
