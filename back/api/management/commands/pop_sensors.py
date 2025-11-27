@@ -64,8 +64,8 @@ class Command(BaseCommand):
                     mac_address=row.mac_address,
                     defaults={
                         'sensor' : convertNameSensor(row.sensor),
-                        'mac_address': row.mac_address,
-                        'unity_mec': row.unidade_medida,
+                        'mac_address': row.mac_address.strip(),
+                        'unity_mec': row.unidade_medida.strip(),
                         'latitude': row.latitude,
                         'longitude': row.longitude,
                         'status': row.status if type(row.status) == bool else True if row.status=='ativo' else False,
@@ -82,7 +82,6 @@ class Command(BaseCommand):
                 if(criados):
                     History.objects.create(
                         sensor = obj,
-                        # QUAL O VALOR DO SENSOR?
                         value = randint(0, 100),
                         timestamp = timezone.now()
                     )
@@ -98,8 +97,8 @@ class Command(BaseCommand):
 
                 sensor_instance = Sensor.objects.create(
                     sensor=convertNameSensor(row.sensor),
-                    mac_address=row.mac_address,
-                    unity_mec=row.unidade_medida,
+                    mac_address=row.mac_address.strip(),
+                    unity_mec=row.unidade_medida.strip(),
                     latitude=row.latitude,
                     longitude=row.longitude,
                     status= row.status if type(row.status) == bool else True if row.status=='ativo' else False,
@@ -111,13 +110,9 @@ class Command(BaseCommand):
                 if(criados):
                     History.objects.create(
                         sensor = sensor_instance,
-                        # QUAL O VALOR DO SENSOR?
                         value = randint(0, 100),
                         timestamp = timezone.now()
-
                     )
-
-                    
 
         msg = f"Concluído. Criados: {criados}"
         if opts["update"]:

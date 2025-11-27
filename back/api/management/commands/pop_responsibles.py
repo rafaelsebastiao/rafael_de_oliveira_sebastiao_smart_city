@@ -29,7 +29,7 @@ class Command(BaseCommand):
         if opts["update"]: 
             for row in df.itertuples(index=False):
                 obj, created = locals.objects.update_or_create(
-                    name=row.nome
+                    name=row.nome.strip()
                     
                     )
 
@@ -44,7 +44,7 @@ class Command(BaseCommand):
             buffer = []
             for row in df.itertuples(index=False):
                 buffer.append(Responsible(
-                    name=row.nome
+                    name=row.nome.strip()
                     
                 ))
 

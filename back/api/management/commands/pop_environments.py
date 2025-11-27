@@ -57,7 +57,7 @@ class Command(BaseCommand):
                     mac_address=row.mac_address,
                     defaults={
                         'local': local_instance,
-                        'description': row.descricao,
+                        'description': row.descricao.strip(),
                         'responsible': responsible_instance
                     }
                 )

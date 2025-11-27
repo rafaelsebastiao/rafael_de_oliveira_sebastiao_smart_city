@@ -148,7 +148,7 @@ class HistoriesView(ListCreateAPIView):
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_class = HistoryFilter
 
-    search_fields = ['sensor', 'hour']
+    search_fields = ['sensor_id', 'sensor', 'value', 'hour']
 
 class LocalDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Local.objects.all()  

@@ -33,7 +33,7 @@ class Command(BaseCommand):
         if opts["update"]: 
             for row in df.itertuples(index=False):
                 obj, created = locals.objects.update_or_create(
-                    local=row.local
+                    local=row.local.strip()
                     
                     )
 
@@ -48,7 +48,7 @@ class Command(BaseCommand):
             buffer = []
             for row in df.itertuples(index=False):
                 buffer.append(Local(
-                    local=row.local  
+                    local=row.local.strip()
                 ))
 
             Local.objects.bulk_create(buffer, ignore_conflicts=True)
