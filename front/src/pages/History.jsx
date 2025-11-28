@@ -6,7 +6,7 @@ export function History(){
         <>
             <main>
                 <nav className={estilo.menuFlex} >
-                    <Link to="listarHistoricos" className={estilo.menuItem}>Listar históricos</Link>
+                    <Link to="listHistories" className={estilo.menuItem}>Listar históricos</Link>
                 </nav>
             </main>
         </>

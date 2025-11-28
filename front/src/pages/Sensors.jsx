@@ -8,7 +8,7 @@ export function Sensors(){
         <>
             <main>
                 <nav className={estilo.menuFlex} >
-                    <Link to="cadastrarSensores" className={estilo.menuItem}>Cadastrar Sensores</Link>
+                    <Link to="registerSensors" className={estilo.menuItem}>Cadastrar Sensores</Link>
                     <Link to="editSensores"className={estilo.menuItem}>Editar sensores</Link>
                     <Link to="listSensors"className={estilo.menuItem}>ListarSensores</Link>
                 </nav>

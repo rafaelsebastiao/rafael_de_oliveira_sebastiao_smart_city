@@ -8,7 +8,7 @@ import {Environments} from "../pages/Environments";
 import {Sensors} from "../pages/Sensors";
 import {History} from "../pages/History";
 
-import { CadastrarSensores } from "../pages/CadastrarSensores";
+import { RegisterSensors } from "../pages/RegisterSensors";
 import { ListSensors } from "../pages/ListSensors";
 import { ListEnvironments } from "../pages/ListEnvironments";
 import { ListHistories } from "../pages/ListHistories";
@@ -28,9 +28,9 @@ export function MyRoutes(){
             <Route path="history" element={<History />} />
             
             {/* Telas de sensores */}
-            <Route path="sensores/cadastrarSensores" element={<CadastrarSensores />} />
-            <Route path="sensores/editSensores" element={<CadastrarSensores />} />
-            <Route path="sensores/listSensors" element={<ListSensors />} />
+            <Route path="sensors/registerSensors" element={<RegisterSensors />} />
+            <Route path="sensors/editSensores" element={<RegisterSensors />} />
+            <Route path="sensors/listSensors" element={<ListSensors />} />
 
 
             {/* Telas de ambientes */}
@@ -38,7 +38,7 @@ export function MyRoutes(){
             <Route path="environments/listEnvironments" element={<ListEnvironments />} />
 
             {/* Telas de historicos */}
-            <Route path="historico/listarHistoricos" element={<ListHistories />} />
+            <Route path="history/listHistories" element={<ListHistories />} />
 
 
             </Route>

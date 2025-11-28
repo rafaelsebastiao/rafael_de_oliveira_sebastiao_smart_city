@@ -1,5 +1,4 @@
 .cabecalho{
- 
     background: var(--azul-escuro);
     width: 100vw;
     height: 150px;
@@ -8,6 +7,7 @@
     align-items: center;
     padding: 15px 20px;
     text-align: center;
+    /* position: fixed; */
 }
 .titulo{
     color: var(--azul-claro);

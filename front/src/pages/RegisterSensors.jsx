@@ -1,4 +1,4 @@
-import estilo from './CadastrarSensores.module.css';
+import style from './RegisterSensor.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -19,7 +19,7 @@ const schemaSensor = z.object({
         .max(15, 'Máximo de 15 caracteres'),
 });
 
-export function CadastrarSensores() {
+export function RegisterSensors() {
     const navigate = useNavigate();
 
     const {
@@ -59,10 +59,10 @@ export function CadastrarSensores() {
         }
     }
     return (
-        <section className={estilo.container}>
-            <form className={estilo.formulario} onSubmit={handleSubmit(enviarDados)}>
+        <section className={style.container}>
+            <form className={style.formulario} onSubmit={handleSubmit(enviarDados)}>
 
-                <h2 className={estilo.titulo}>Cadastrar Sensores</h2>
+                <h2 className={style.titulo}>Cadastrar Sensores</h2>
 
 
                 <label htmlFor="usuario">Sensor:</label>
@@ -73,7 +73,7 @@ export function CadastrarSensores() {
                     {...register("username")}
                 />
                 {errors.username && (
-                    <p className={estilo.erro}>{errors.username.message}</p>
+                    <p className={style.erro}>{errors.username.message}</p>
                 )}
 
 
@@ -85,7 +85,7 @@ export function CadastrarSensores() {
                     {...register("password")}
                 />
                 {errors.password && (
-                    <p className={estilo.erro}>{errors.password.message}</p>
+                    <p className={style.erro}>{errors.password.message}</p>
                 )}
 
                 <label htmlFor="senha">Unity_mec:</label>
@@ -96,7 +96,7 @@ export function CadastrarSensores() {
                     {...register("password")}
                 />
                 {errors.password && (
-                    <p className={estilo.erro}>{errors.password.message}</p>
+                    <p className={style.erro}>{errors.password.message}</p>
                 )}
 
 
@@ -108,7 +108,7 @@ export function CadastrarSensores() {
                     {...register("password")}
                 />
                 {errors.password && (
-                    <p className={estilo.erro}>{errors.password.message}</p>
+                    <p className={style.erro}>{errors.password.message}</p>
                 )}
 
 
@@ -120,7 +120,7 @@ export function CadastrarSensores() {
                     {...register("password")}
                 />
                 {errors.password && (
-                    <p className={estilo.erro}>{errors.password.message}</p>
+                    <p className={style.erro}>{errors.password.message}</p>
                 )}
 
 <label htmlFor="senha">Longitude:</label>
@@ -131,11 +131,11 @@ export function CadastrarSensores() {
                     {...register("password")}
                 />
                 {errors.password && (
-                    <p className={estilo.erro}>{errors.password.message}</p>
+                    <p className={style.erro}>{errors.password.message}</p>
                 )}
 
 
-                <button className={estilo.botao}>Entrar</button>
+                <button className={style.botao}>Entrar</button>
 
             </form>
         </section>
