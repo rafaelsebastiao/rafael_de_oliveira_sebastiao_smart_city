@@ -21,10 +21,8 @@ class Command(BaseCommand):
             f"--email={email}",
                     
             ]
-
+        
         try:
-            # NOTA: Você ainda precisa garantir que a senha seja definida.
-            # O jeito mais robusto é setar a variável de ambiente DJANGO_SUPERUSER_PASSWORD
             os.environ['DJANGO_SUPERUSER_PASSWORD'] = password
             
             # Execute o comando
@@ -34,8 +32,8 @@ class Command(BaseCommand):
                 text=True,
                 check=True
             )
+
             self.stdout.write(self.style.SUCCESS(f"Superusuário '{username}' criado com sucesso!"))
-            # print("Saída do subprocesso:", resultado.stdout)
 
         except subprocess.CalledProcessError as e:
             self.stderr.write(self.style.ERROR("Erro ao criar superusuário."))

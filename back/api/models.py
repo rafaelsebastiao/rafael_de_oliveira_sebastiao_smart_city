@@ -14,7 +14,7 @@ class Responsible(models.Model):
 
 class Environment(models.Model):
     local = models.ForeignKey(Local, to_field='id', on_delete=models.CASCADE)
-    description = models.TextField(null=False, blank=False)
+    description = models.CharField(max_length=50, null=False, blank=False)
     responsible = models.ForeignKey(Responsible, to_field='id', on_delete=models.CASCADE, null=False, blank=False)
 
     def __str__(self):

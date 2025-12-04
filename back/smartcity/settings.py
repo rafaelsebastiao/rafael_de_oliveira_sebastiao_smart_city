@@ -77,7 +77,6 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),   # Tempo de vida do token de atualização (padrão 1 dia)
     'ROTATE_REFRESH_TOKENS': True, # Rotaciona o refresh token a cada uso, aumentando segurança
     'BLACKLIST_AFTER_ROTATION': True, # Adiciona o refresh token antigo a uma blacklist
-    # Outras configurações padrão...
 }
 
 ROOT_URLCONF = 'smartcity.urls'
@@ -104,19 +103,19 @@ WSGI_APPLICATION = 'smartcity.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    #  'default': {
-    #         'ENGINE': 'django.db.backends.mysql',
-    #         'NAME': 'smartcity_rafaelsebastiao',
-    #         'USER': 'root',
-    #         'PASSWORD': 'senai',
-    #         'HOST': 'localhost',  # Or the IP address/hostname of your MySQL server
-    #         'PORT': '3307',      # Or the port your MySQL server is listening on
-    #     }
+     'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'smartcity_rafaelsebastiao',
+            'USER': 'root',
+            'PASSWORD': 'senai',
+            'HOST': 'localhost',  # Or the IP address/hostname of your MySQL server
+            'PORT': '3307',      # Or the port your MySQL server is listening on
+        }
 
-        'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3', # ou um caminho completo, como '/path/to/your/database/db.sqlite3'
-    }
+    #     'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3', # ou um caminho completo, como '/path/to/your/database/db.sqlite3'
+    # }
 
 
 }
