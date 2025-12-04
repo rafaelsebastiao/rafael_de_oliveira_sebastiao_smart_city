@@ -10,7 +10,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
-
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 
@@ -23,11 +22,12 @@ from random import randint
 @api_view(['GET', 'POST'])
 def list_locals(request):
     if request.method=='GET':
-        queryset = Local.objects.all()
+        queryset = Local.objects.all().order_by('local')
         serializers = LocalSerializer(queryset, many=True)
         return Response(serializers.data)
     elif request.method=='POST':
         serializers = LocalSerializer(data = request.data)
+
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
@@ -49,7 +49,6 @@ def list_responsibles(request):
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 @api_view(['GET', 'POST'])

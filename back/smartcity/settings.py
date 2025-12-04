@@ -3,8 +3,6 @@ from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-d98-^o06-z4q_&td3uxth1c^6gg=s^d(fqc3#2m&3q191hu3b0'
 
@@ -12,7 +10,6 @@ SECRET_KEY = 'django-insecure-d98-^o06-z4q_&td3uxth1c^6gg=s^d(fqc3#2m&3q191hu3b0
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",

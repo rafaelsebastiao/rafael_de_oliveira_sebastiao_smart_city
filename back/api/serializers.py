@@ -20,7 +20,7 @@ class EnvironmentSerializer(serializers.ModelSerializer):
 class SensorSerializer(serializers.ModelSerializer):
     class Meta:
         model =Sensor
-        fields = ['id', 'sensor', 'mac_address', 'unity_mec', 'latitude', 'longitude', 'status', 'environment']
+        fields = ['id', 'sensor', 'mac_address', 'unity_med', 'latitude', 'longitude', 'status', 'environment']
 
 
 class HistorySerializer(serializers.ModelSerializer):
