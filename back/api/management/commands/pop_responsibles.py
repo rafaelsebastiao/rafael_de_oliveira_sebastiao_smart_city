@@ -58,13 +58,3 @@ class Command(BaseCommand):
 
 
 
-# c = Command()
-
-# c.handle()
-
-
-# csv_path = Path("C:/Users/44794549857/Documents/smartcity/back/api/population/locais.csv")
-# df = pd.read_csv(csv_path)
-
-# for indice, row in df.head().iterrows():
-#     print(f"{row.item()}")

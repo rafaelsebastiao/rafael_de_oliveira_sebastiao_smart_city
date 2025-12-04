@@ -30,7 +30,7 @@ class Sensor(models.Model):
 
     sensor = models.CharField(null=False, blank=False, choices=TYPE_SENSORS, max_length=20)
     mac_address = models.CharField(max_length=20, null=False, blank=False)
-    unity_mec = models.CharField(max_length=10, null=False, blank=False)
+    unity_med = models.CharField(max_length=10, null=False, blank=False)
     latitude = models.FloatField(max_length=15, null=False, blank=False)
     longitude = models.FloatField(max_length=15, null=False, blank=False)
     status = models.BooleanField()
