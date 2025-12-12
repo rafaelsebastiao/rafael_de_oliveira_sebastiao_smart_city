@@ -1,4 +1,4 @@
-import style from './RegisterSensor.module.css';
+import style from '../styles/RegisterSensor.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { z } from "zod";

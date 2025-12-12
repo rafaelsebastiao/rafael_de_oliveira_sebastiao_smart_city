@@ -1,0 +1,97 @@
+
+
+.main_container{
+  width:100%;
+  margin-top:500px;
+  padding:30px;
+}
+
+
+.title{
+  text-align: center;
+}
+.histories_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  box-sizing: border-box;
+  min-height: 0; /* Importante para grid items */
+  overflow-y: auto; /* Permite scroll interno se necessário */
+
+}
+
+.history_card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 350px;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: 0; /* Importante */
+  height: fit-content; /* Ajusta altura ao conteúdo */
+  margin-top:50px;
+}
+
+.history_card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.history_field {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.sensor_label {
+  font-weight: 600;
+  color: #666;
+  min-width: 100px;
+  flex-shrink: 0;
+  font-size: 0.9em;
+}
+
+.sensor_value {
+  color: #333;
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+.history_status {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.status_active {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.status_inactive {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.history_button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.history_button:hover {
+  background-color: #0056b3;
+}

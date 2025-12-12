@@ -3,7 +3,7 @@ import axios from "axios"
 import { apiURL } from "../base/apiBase"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import style from './ListSensors.module.css'
+import style from '../styles/ListSensors.module.css'
 import { useFooter } from "../contexts/FooterContext"
 
 

@@ -1,78 +1,82 @@
 import { useEffect } from "react"
-
 import axios from "axios"
 import { apiURL } from "../base/apiBase"
 import { useState } from "react"
-
 import { useNavigate } from "react-router-dom"
+import style from '../styles/ListHistories.module.css'
+import { useFooter } from "../contexts/FooterContext"
+
 
 export function ListHistories(){
-    const [history, setHistories] = useState([])
+    const { setFooterStyle } = useFooter()
+    const [histories, setHistories] = useState([])
     const navigate = useNavigate()
 
-    useEffect(()=>{
+    useEffect(() => {
+        // Quando entrar na página de sensores
+        setFooterStyle({ 
+            marginTop: '500px',
+            
+         
+        });
+        
         const token = localStorage.getItem('access_token')
-
-        if(!token) return;
-
+        if (!token) return;
+        
         axios.get(`${apiURL}/histories/`, {
             headers: {'Authorization': `Bearer ${token}`}
-
         }).then(response => setHistories(response.data))
-        .catch(
-            error=> {
-                
-                if(error.response){
-                    const status = error.response.status
+        .catch(error => {
+            console.log("Erro ao buscar historicos", error) 
+            alert("Login expirado!")
+            navigate('/', {replace:true})
+        })
 
-                    if(status == 401){
-                        alert("Login expirado!")
-                        navigate('/', {replace:true} )
-                    }else{
-                        alert(status)
-                        console.log("Erro ao buscar historicos", error) 
-                    }
+        return () => {
+            // Limpa quando sair da página
+            setFooterStyle({})
+        }
+    }, [setFooterStyle, navigate]) 
 
-                    
-                }
-
-                
-                
-            })
-    }, [])
-
+    
 
     return (
-        <>
-            <main>
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                </thead>
+        <main className={style.main_container}>
+            <h2 className={style.title}>Historicos ({histories.length})</h2>
+            <div className={style.histories_grid} >
+                {histories.slice(0, 20).map(history => (
+                    <div key={history.id} className={style.history_card}>
+                        <div className={style.history_field}>
+                            <span className={style.history_label}>ID: </span>
+                            <span className={style.history_value}>{history.id}</span>
+                        </div>
+                        <div className={style.history_field}>
+                            <span className={style.history_label}>Sensor: </span>
+                            <span className={style.history_value}>{history.sensor}</span>
+                        </div>
+                        <div className={style.history_field}>
+                            <span className={style.history_label}>Value: </span>
+                            <span className={style.history_value}>{history.value}</span>
+                        </div>
+                        <div className={style.history_field}>
+                            <span className={style.history_label}>Timestamp: </span>
+                            <span className={`${style.history_label}}`}>
+                                {history.timestamp}
+                            </span>
+                        </div>
+                     
+                        <button 
+                            className={style.history_button}
+                            onClick={() => {
 
-                <tbody>
-                    {history.map(history => (
-                        /*
-                            class Environment(models.Model):
-    local = models.ForeignKey(Local, to_field='id', on_delete=models.CASCADE)
-    description = models.TextField(null=False, blank=False)
-    responsible = models.ForeignKey(Responsible, to_field='id', on_delete=models.CASCADE, null=False, blank=False)
-
-                        */
-                        <tr key={history.id}>
-                            <td>{history.sensor}</td>
-                            <td>{history.valor}</td>
-                            <td>{history.timestamp}</td>
-                        </tr>
-
-                    ))}
-                </tbody>
-                </table>
-            </main>
-        </>
+                            }
+                            }
+                        >
+                            Editar
+                        </button>
+                    </div>
+                ))}
+            </div>
+        </main>
     )
 }
