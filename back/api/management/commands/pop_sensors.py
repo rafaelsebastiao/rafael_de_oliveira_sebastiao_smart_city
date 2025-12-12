@@ -65,7 +65,7 @@ class Command(BaseCommand):
                     defaults={
                         'sensor' : convertNameSensor(row.sensor),
                         'mac_address': row.mac_address.strip(),
-                        'unity_mec': row.unidade_medida.strip(),
+                        'unity_med': row.unidade_medida.strip(),
                         'latitude': row.latitude,
                         'longitude': row.longitude,
                         'status': row.status if type(row.status) == bool else True if row.status=='ativo' else False,
@@ -98,7 +98,7 @@ class Command(BaseCommand):
                 sensor_instance = Sensor.objects.create(
                     sensor=convertNameSensor(row.sensor),
                     mac_address=row.mac_address.strip(),
-                    unity_mec=row.unidade_medida.strip(),
+                    unity_med=row.unidade_medida.strip(),
                     latitude=row.latitude,
                     longitude=row.longitude,
                     status= row.status if type(row.status) == bool else True if row.status=='ativo' else False,
