@@ -4,22 +4,28 @@ import { apiURL } from "../base/apiBase"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import style from '../styles/ListSensors.module.css'
-import { useFooter } from "../contexts/FooterContext"
 
+import { useHeader } from "../contexts/HeaderContext"
+import { useFooter } from "../contexts/FooterContext"
 
 
 export function ListSensors(){
     const { setFooterStyle } = useFooter()
+    const {setHeaderStyle} = useHeader()
+
     const [sensores, setSensores] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
         // Quando entrar na página de sensores
         setFooterStyle({ 
-            marginTop: '500px',
+            marginTop: '10000px',
             
-         
         });
+
+        setHeaderStyle({
+            marginBottom:'9450px'
+        })
         
         const token = localStorage.getItem('access_token')
         if (!token) return;
@@ -76,7 +82,7 @@ export function ListSensors(){
         <main className={style.main_container}>
             <h2 className={style.title}>Sensores ({sensores.length})</h2>
             <div className={style.sensors_grid} >
-                {sensores.slice(0, 20).map(sensor => (
+                {sensores.slice(0, sensores.length).map(sensor => (
                     <div key={sensor.id} className={style.sensor_card}>
                         <div className={style.sensor_field}>
                             <span className={style.sensor_label}>ID: </span>

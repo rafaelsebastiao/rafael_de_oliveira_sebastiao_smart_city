@@ -1,27 +1,25 @@
 import { createContext, useContext, useState } from 'react';
 
-const FooterContext = createContext();
+const HeaderContext = createContext();
 
-export function FooterProvider({ children }) {
-    const [footerStyle, setFooterStyle] = useState({});
-    
-    console.log('FooterProvider criado'); // Debug
-    
+export function HeaderProvider({ children }) {
+    const [headerStyle, setHeaderStyle] = useState({});
+        
     return (
-        <FooterContext.Provider value={{ 
-            footerStyle, 
-            setFooterStyle 
+        <HeaderContext.Provider value={{ 
+            headerStyle, 
+            setHeaderStyle 
         }}>
             {children}
-        </FooterContext.Provider>
+        </HeaderContext.Provider>
     );
 }
 
-export const useFooter = () => {
-    const context = useContext(FooterContext);
+export const useHeader = () => {
+    const context = useContext(HeaderContext);
     
     if (!context) {
-        throw new Error('useFooter must be used within a FooterProvider');
+        throw new Error('useHeader must be used within a HeaderProvider');
     }
     
     return context;
